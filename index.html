@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clock Webpage</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Hamburger Button -->
+  <button id="hamburger" class="hamburger" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <!-- Overlay (click to close) -->
+  <div id="overlay" class="overlay" aria-hidden="true"></div>
+
+  <!-- Sidebar -->
+  <nav id="sidebar" class="sidebar" aria-hidden="true">
+    <div class="sidebar-header">
+      <h2>Time Tools</h2>
+    </div>
+    <ul class="nav">
+      <li><a class="nav-link" href="#current-time">Current Time</a></li>
+      <li><a class="nav-link" href="#time-converter">Time Converter</a></li>
+      <li><a class="nav-link" href="#schedule">Schedule</a></li>
+      <li><a class="nav-link" href="#stopwatch">Stopwatch</a></li>
+      <li><a class="nav-link" href="#alarm">Alarm</a></li>
+      <li><a class="nav-link" href="#world-clock">World Clock</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main">
+    <header class="hero">
+      <h1> Clock Webpage</h1>
+      <p>Select a feature from the sidebar.</p>
+    </header>
+
+    <!-- Tiny live clock demo -->
+    <section id="current-time" class="card">
+      <h3>Current Time:</h3>
+      <div class="live-clock">
+        <span id="liveTime">--:--:--</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Link JS (defer ensures DOM is ready) -->
+  <script src="main.js" defer></script>
+</body>
+</html>

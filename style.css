@@ -1,0 +1,130 @@
+:root{
+  --bg:#0f1220;
+  --panel:#1b2036;
+  --panel-2:#12162a;
+  --accent:#4f7cff;
+  --text:#e8ecff;
+  --muted:#9aa3c7;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial;
+  background: linear-gradient(135deg, var(--bg), var(--panel-2));
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* Hamburger */
+/* Hamburger */
+.hamburger {
+  position: fixed;
+  top: 16px; 
+  left: 16px;
+  width: 44px; 
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px;
+  background: var(--panel);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.25);
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger .bar {
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+/* Animate to X when expanded */
+.hamburger[aria-expanded="true"] .bar:nth-child(1) {
+  transform: rotate(45deg) translateY(7px);
+}
+.hamburger[aria-expanded="true"] .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger[aria-expanded="true"] .bar:nth-child(3) {
+  transform: rotate(-45deg) translateY(-7px);
+}
+}
+.hamburger .bar::before,
+.hamburger .bar::after{
+  content:""; position:absolute; left:0; width:22px; height:2px; background:#fff;
+  transition:transform .25s ease, opacity .25s ease;
+}
+.hamburger .bar::before{ transform:translateY(-7px); }
+.hamburger .bar::after{  transform:translateY(7px);  }
+
+
+/* Overlay */
+.overlay{
+  position:fixed; inset:0;
+  background:rgba(0,0,0,.45);
+  opacity:0; pointer-events:none;
+  transition:opacity .25s ease;
+  z-index:1000;
+}
+.overlay.is-open{ opacity:1; pointer-events:auto; }
+
+/* Sidebar */
+.sidebar{
+  position:fixed; inset:0 auto 0 0;
+  width:280px; 
+  background:var(--panel);
+  box-shadow: 6px 0 24px rgba(0,0,0,.35);
+  transform:translateX(-100%);
+  transition:transform .25s ease;
+  z-index:1001; /* on top of overlay for clicks */
+  display:flex; 
+}
+.sidebar.is-open{ transform:translateX(0); }
+.sidebar-header{
+  padding:20px 20px 10px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.sidebar-header h2{ margin:0; font-size:20px; color:#fff; }
+.nav{list-style:none; margin:0; padding:8px 0; }
+.nav li{ margin:0; }
+.nav-link{
+  display:block; padding:14px 20px;
+  color:#fff; text-decoration:none; font-size:16px;
+}
+.nav-link:hover{
+  background:rgba(255,255,255,.06);
+}
+
+/* Main */
+.main{ padding:96px 20px 40px; max-width:1000px; margin:0 auto; }
+.hero h1{ margin:0 0 6px; }
+.hero p{ margin:0 0 20px; color:var(--muted); }
+
+.card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:16px;
+  padding:20px;
+  margin:14px 0;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+  display: grid;
+  justify-content: center;
+}
+
+.live-clock{
+  font-size:42px; font-weight:700; letter-spacing:1px;
+  background: linear-gradient(90deg, #fff, var(--accent));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+
+/* Prevent background scroll when menu open */
+.body--locked{ overflow:hidden; }
+
