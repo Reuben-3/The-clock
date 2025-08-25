@@ -7,6 +7,11 @@
   --muted:#9aa3c7;
 }
 
+nav, h2{
+  display: flex;
+  justify-content: top;
+}
+
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
